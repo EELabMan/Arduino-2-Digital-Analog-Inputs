@@ -14,8 +14,8 @@ const int GLED=10;         //Green LED on Pin 10
 const int RLED=11;         //Red LED on Pin 11
 const int TEMP=0;          //Temp Sensor is on pin A0
 
-const int LOWER_BOUND=139; //Lower Threshold
-const int UPPER_BOUND=147; //Upper Threshold
+const int LOWER_BOUND=152; //Lower Threshold
+const int UPPER_BOUND=155; //Upper Threshold
 
 int val = 0;               //Variable to hold analog reading
 
@@ -25,11 +25,14 @@ void setup()
   pinMode (BLED, OUTPUT); //Set Blue LED as Output
   pinMode (GLED, OUTPUT); //Set Green LED as Output
   pinMode (RLED, OUTPUT); //Set Red LED as Output
+  Serial.begin(9600);
 }
 
 void loop()
 {
   val = analogRead(TEMP);
+  Serial.println(val);
+  delay(500);
  
   if (val < LOWER_BOUND)
   {
